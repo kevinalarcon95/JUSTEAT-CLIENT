@@ -39,10 +39,10 @@ public class Factory {
      *
      * @return una clase hija de la abstracción IRepositorioClientes
      */
-    public IRestaurantAccess getCustomerService() {
+    public IRestaurantAccess getRestaurantService() {
 
         IRestaurantAccess result = null;
-        String type = Utilities.loadProperty("customer.service");
+        String type = Utilities.loadProperty("restaurant.service");
 
         switch (type) {
             case "default":

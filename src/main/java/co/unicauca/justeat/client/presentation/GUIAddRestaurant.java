@@ -2,6 +2,10 @@ package co.unicauca.justeat.client.presentation;
 
 import co.unicauca.justeat.client.access.Factory;
 import co.unicauca.justeat.client.access.IRestaurantAccess;
+import co.unicauca.justeat.client.domain.services.RestaurantService;
+import co.unicauca.justeat.client.infra.Messages;
+import static co.unicauca.justeat.client.infra.Messages.successMessage;
+import co.unicauca.justeat.commons.domain.Restaurant;
 
 /**
  *
@@ -88,7 +92,27 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRestaurantActionPerformed
-        IRestaurantAccess service;
+        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        //Inyecta la dependencia
+        
+        RestaurantService restaurantService = new RestaurantService(service);
+        
+        Restaurant restaurant = new Restaurant();
+        restaurant.setResId(Integer.parseInt(txtRestId.getText()));
+        restaurant.setAdminId(1061782); // Se valida con el loguin
+        restaurant.setResNom(txtRestName.getText());
+        restaurant.setResDireccion(txtRestAddress.getText());
+        restaurant.setResTematicaComida("Pollo"); //Implementar con el combo box (debe poder seleccionar más de una opcion)
+        
+        try {
+            String response = restaurantService.createRestaurant(restaurant);
+            successMessage("Restaurante " + response + " agregado con exito.", "Atención");
+            clearCotronls();
+            txtRestId.setText("");
+            btnCreateRestaurant.setVisible(false);
+        } catch (Exception ex) {
+            successMessage(ex.getMessage(), "Atención");
+        }
     }//GEN-LAST:event_btnCreateRestaurantActionPerformed
 
     
@@ -134,4 +158,11 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
     private javax.swing.JTextField txtRestId;
     private javax.swing.JTextField txtRestName;
     // End of variables declaration//GEN-END:variables
+
+    private void clearCotronls() {
+        txtRestId.setText("");
+        txtRestName.setText("");
+        txtRestAddress.setText("");
+        txtRestCity.setText("");
+    }
 }
