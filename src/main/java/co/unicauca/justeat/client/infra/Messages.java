@@ -1,4 +1,3 @@
-
 package co.unicauca.justeat.client.infra;
 
 import javax.swing.ImageIcon;
