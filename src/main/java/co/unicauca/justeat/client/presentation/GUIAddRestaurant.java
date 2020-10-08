@@ -75,7 +75,7 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
                 btnCreateRestaurantActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCreateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, -1, -1));
+        jPanel1.add(btnCreateRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,7 +85,7 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
@@ -111,7 +111,9 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
             txtRestId.setText("");
             btnCreateRestaurant.setVisible(false);
         } catch (Exception ex) {
-            successMessage(ex.getMessage(), "Atención");
+            System.out.println(ex);
+            successMessage(ex.getMessage() + "Error", "Atención");
+            
         }
     }//GEN-LAST:event_btnCreateRestaurantActionPerformed
 

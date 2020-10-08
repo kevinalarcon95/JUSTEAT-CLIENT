@@ -9,7 +9,7 @@ import co.unicauca.justeat.commons.domain.Restaurant;
  *         KEVIN ALARCON
  *         JUAN JOSE LOPEZ
  *         SANTIAGO CORDOBA
- *         DANIEL MUÑOZ
+ *         DANIEL MUÑOZ.
  */
 
 public class RestaurantService {
