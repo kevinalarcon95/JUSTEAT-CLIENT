@@ -40,8 +40,9 @@ public class GUILoguin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnInvited = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        btnLoguin = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -89,14 +90,25 @@ public class GUILoguin extends javax.swing.JFrame {
         jLabel9.setText("Sign in your account");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 66, 79));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Loguin");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 70, 30));
+        btnInvited.setBackground(new java.awt.Color(255, 66, 79));
+        btnInvited.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnInvited.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvited.setText("Invited");
+        btnInvited.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvitedActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnInvited, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 70, 30));
 
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 160, 20));
+
+        btnLoguin.setBackground(new java.awt.Color(255, 66, 79));
+        btnLoguin.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnLoguin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLoguin.setText("Loguin");
+        jPanel1.add(btnLoguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 70, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 410));
 
@@ -137,6 +149,12 @@ public class GUILoguin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnInvitedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitedActionPerformed
+        GUIPrincipal gp = new GUIPrincipal();
+        gp.setExtendedState(MAXIMIZED_BOTH);
+        gp.setVisible(true);
+    }//GEN-LAST:event_btnInvitedActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -174,7 +192,8 @@ public class GUILoguin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnInvited;
+    private javax.swing.JButton btnLoguin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

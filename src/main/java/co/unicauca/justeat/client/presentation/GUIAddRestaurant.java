@@ -3,7 +3,6 @@ package co.unicauca.justeat.client.presentation;
 import co.unicauca.justeat.client.access.Factory;
 import co.unicauca.justeat.client.access.IRestaurantAccess;
 import co.unicauca.justeat.client.domain.services.RestaurantService;
-import co.unicauca.justeat.client.infra.Messages;
 import static co.unicauca.justeat.client.infra.Messages.successMessage;
 import co.unicauca.justeat.commons.domain.Restaurant;
 
