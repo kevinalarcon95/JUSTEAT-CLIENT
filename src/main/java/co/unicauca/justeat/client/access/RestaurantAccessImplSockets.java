@@ -141,7 +141,7 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
     private String createRestaurantRequestJson(Restaurant restaurant) {
 
         Protocol protocol = new Protocol();
-        protocol.setResource("restaurant");
+        protocol.setResource("Restaurante");
         protocol.setAction("post");
         protocol.addParameter("RestId", restaurant.getResId() + "");
         protocol.addParameter("AdminId", restaurant.getAdminId() + "");

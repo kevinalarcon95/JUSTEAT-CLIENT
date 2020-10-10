@@ -101,6 +101,7 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
         restaurant.setAdminId(1061782); // Se valida con el loguin
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
+        restaurant.setResCiudad(txtRestCity.getText());
         restaurant.setResTematicaComida("Pollo"); //Implementar con el combo box (debe poder seleccionar más de una opcion)
         
         try {
