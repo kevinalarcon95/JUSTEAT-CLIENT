@@ -52,4 +52,16 @@ public class Factory {
 
         return result;
     }
+    
+    public IDishAccess getDishService(){
+        IDishAccess result= null;
+        String type= Utilities.loadProperty("restaurant.service");
+        
+        switch(type){
+            case "default":
+                result= new DishAccessImplSockets();
+                break;
+        }
+        return result;
+    }
 }
