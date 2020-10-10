@@ -1,11 +1,14 @@
 package co.unicauca.justeat.client.presentation;
+
+import co.unicauca.justeat.client.domain.User;
+import static co.unicauca.justeat.client.infra.Messages.warningMessage;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.event.KeyEvent;
+
 /**
  *
- * @author SANTIAGO MUÑOZ
- *         KEVIN ALARCON
- *         JUAN JOSE LOPEZ
- *         SANTIAGO CORDOBA
- *         DANIEL MUÑOZ
+ * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
+ * MUÑOZ
  */
 public class GUILoguin extends javax.swing.JFrame {
 
@@ -15,8 +18,8 @@ public class GUILoguin extends javax.swing.JFrame {
     public GUILoguin() {
         initComponents();
         setLocationRelativeTo(null);
-        this.setResizable(false);
-        
+        //this.setResizable(false);
+
         TextPrompt textUser = new TextPrompt(" Enter your username", txtUser);
         TextPrompt textPass = new TextPrompt(" Enter you password", txtPassword);
     }
@@ -36,18 +39,20 @@ public class GUILoguin extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        btnInvited = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
-        btnLoguin = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        btnLoguin = new rsbuttom.RSButtonMetro();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnAdmin = new rsbuttom.RSButtonMetro();
+        btnDeliveryMan1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -70,12 +75,6 @@ public class GUILoguin extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_user_16.png")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 20, 20));
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("User:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 50, 20));
-
         jLabel7.setBackground(new java.awt.Color(84, 84, 84));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
@@ -90,70 +89,96 @@ public class GUILoguin extends javax.swing.JFrame {
         jLabel9.setText("Sign in your account");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
 
-        btnInvited.setBackground(new java.awt.Color(255, 66, 79));
-        btnInvited.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnInvited.setForeground(new java.awt.Color(255, 255, 255));
-        btnInvited.setText("Invited");
-        btnInvited.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInvitedActionPerformed(evt);
+        txtPassword.setBorder(null);
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyPressed(evt);
             }
         });
-        jPanel1.add(btnInvited, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 70, 30));
-
-        txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 160, 20));
 
+        jLabel10.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel10.setText("User:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 50, 20));
+
         btnLoguin.setBackground(new java.awt.Color(255, 66, 79));
-        btnLoguin.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnLoguin.setForeground(new java.awt.Color(255, 255, 255));
         btnLoguin.setText("Loguin");
-        jPanel1.add(btnLoguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 70, 30));
+        btnLoguin.setColorHover(new java.awt.Color(194, 18, 31));
+        btnLoguin.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnLoguin.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnLoguin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnLoguin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoguinActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLoguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 70, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 410));
 
         jPanel3.setBackground(new java.awt.Color(255, 66, 79));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\Just Eat.png")); // NOI18N
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 122, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText(" Find your favorite restaurants and place your orders.");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 236, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(61, 61, 61))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap(138, Short.MAX_VALUE))
-        );
+        btnAdmin.setBackground(new java.awt.Color(255, 66, 79));
+        btnAdmin.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_administrator_male_16.png")); // NOI18N
+        btnAdmin.setText("Admin");
+        btnAdmin.setColorHover(new java.awt.Color(255, 66, 79));
+        btnAdmin.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnAdmin.setColorPressed(new java.awt.Color(255, 66, 79));
+        btnAdmin.setColorTextHover(new java.awt.Color(204, 204, 204));
+        btnAdmin.setColorTextPressed(new java.awt.Color(204, 204, 204));
+        btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 20));
+
+        btnDeliveryMan1.setBackground(new java.awt.Color(255, 66, 79));
+        btnDeliveryMan1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_delivery_scooter_16.png")); // NOI18N
+        btnDeliveryMan1.setText("Delivery Man");
+        btnDeliveryMan1.setColorHover(new java.awt.Color(255, 66, 79));
+        btnDeliveryMan1.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnDeliveryMan1.setColorPressed(new java.awt.Color(255, 66, 79));
+        btnDeliveryMan1.setColorTextHover(new java.awt.Color(204, 204, 204));
+        btnDeliveryMan1.setColorTextPressed(new java.awt.Color(204, 204, 204));
+        btnDeliveryMan1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel3.add(btnDeliveryMan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 130, 20));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 350, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInvitedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitedActionPerformed
-        GUIPrincipal gp = new GUIPrincipal();
+    private void btnLoguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoguinActionPerformed
+    co.unicauca.justeat.client.infra.Security.usuario = new User(txtUser.getText(), txtPassword.getText(), "");
+        
+        //Aqui vendria el analizar si el usuario existe en el sistema
+        if (true) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    GUIPrincipal gp = new GUIPrincipal();
         gp.setExtendedState(MAXIMIZED_BOTH);
         gp.setVisible(true);
-    }//GEN-LAST:event_btnInvitedActionPerformed
+                }
+            });
+            this.dispose();
+        } else {
+            warningMessage("Contraseña incorrecta", "Atención");
+        }
+    }//GEN-LAST:event_btnLoguinActionPerformed
+
+    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnLoguinActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtPasswordKeyPressed
 
     /**
      * @param args the command line arguments
@@ -186,18 +211,22 @@ public class GUILoguin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUILoguin().setVisible(true);
+               GUILoguin loguin = new GUILoguin();
+               loguin.setVisible(true);
+               loguin.setExtendedState(MAXIMIZED_BOTH);
+               loguin.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInvited;
-    private javax.swing.JButton btnLoguin;
+    private rsbuttom.RSButtonMetro btnAdmin;
+    private rsbuttom.RSButtonMetro btnDeliveryMan1;
+    private rsbuttom.RSButtonMetro btnLoguin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

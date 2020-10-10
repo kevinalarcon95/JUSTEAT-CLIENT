@@ -12,10 +12,13 @@ package co.unicauca.justeat.client.presentation;
 public class GUIPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form GUIPrincipal
+     * Creates new form Principal
      */
     public GUIPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
+        setExtendedState(MAXIMIZED_BOTH);
+        TextPrompt textSearch = new TextPrompt(" Find restaurants near you", txtSearch);
     }
 
     /**
@@ -27,18 +30,97 @@ public class GUIPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        rSButtonMetro5 = new rsbuttom.RSButtonMetro();
+        btnRegistro = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        btnRegistro1 = new javax.swing.JButton();
+        rSButtonMetro6 = new rsbuttom.RSButtonMetro();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(245, 243, 244));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\search_26px.png")); // NOI18N
+
+        txtSearch.setBorder(null);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSearch))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\just-eat-color.png")); // NOI18N
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        rSButtonMetro5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        rSButtonMetro5.setText("Enter");
+        rSButtonMetro5.setColorHover(new java.awt.Color(194, 18, 31));
+        rSButtonMetro5.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro5.setColorPressed(new java.awt.Color(194, 18, 31));
+        rSButtonMetro5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel4.add(rSButtonMetro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 70, 20));
+
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(255, 66, 79));
+        btnRegistro.setText("Delivery Man");
+        btnRegistro.setBorder(null);
+        btnRegistro.setBorderPainted(false);
+        btnRegistro.setContentAreaFilled(false);
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro.setSelected(true);
+        jPanel4.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 110, 20));
+        jPanel4.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 90, 10));
+        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 90, 10));
+
+        btnRegistro1.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistro1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        btnRegistro1.setForeground(new java.awt.Color(255, 66, 79));
+        btnRegistro1.setText("Restaurant");
+        btnRegistro1.setBorder(null);
+        btnRegistro1.setBorderPainted(false);
+        btnRegistro1.setContentAreaFilled(false);
+        btnRegistro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistro1.setSelected(true);
+        jPanel4.add(btnRegistro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 110, 20));
+
+        rSButtonMetro6.setBackground(new java.awt.Color(255, 66, 79));
+        rSButtonMetro6.setText("Search");
+        rSButtonMetro6.setColorHover(new java.awt.Color(194, 18, 31));
+        rSButtonMetro6.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro6.setColorPressed(new java.awt.Color(194, 18, 31));
+        jPanel4.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 60, 40));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 813, 494));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,6 +151,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUIPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +162,17 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistro;
+    private javax.swing.JButton btnRegistro1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private rsbuttom.RSButtonMetro rSButtonMetro5;
+    private rsbuttom.RSButtonMetro rSButtonMetro6;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
