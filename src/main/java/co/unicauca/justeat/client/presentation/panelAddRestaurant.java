@@ -119,8 +119,8 @@ public class panelAddRestaurant extends javax.swing.JPanel {
         RestaurantService restaurantService = new RestaurantService(service);
 
         Restaurant restaurant = new Restaurant();
-        restaurant.setResId(Integer.parseInt(txtRestId.getText()));
-        restaurant.setAdminId(1061782); // Se valida con el loguin
+        restaurant.setResId((txtRestId.getText()));
+        restaurant.setUserName(""); // Se valida con el loguin
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
         restaurant.setResCiudad(txtRestCity.getText());

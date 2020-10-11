@@ -143,8 +143,8 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         Protocol protocol = new Protocol();
         protocol.setResource("Restaurante");
         protocol.setAction("post");
-        protocol.addParameter("RestId", restaurant.getResId() + "");
-        protocol.addParameter("AdminId", restaurant.getAdminId() + "");
+        protocol.addParameter("RestId", restaurant.getResId());
+        protocol.addParameter("`UserName", restaurant.getUserName());
         protocol.addParameter("RestNombre", restaurant.getResNom());
         protocol.addParameter("RestDireccion", restaurant.getResDireccion());
         protocol.addParameter("RestCiudad", restaurant.getResCiudad());

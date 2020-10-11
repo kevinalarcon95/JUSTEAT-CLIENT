@@ -1,4 +1,3 @@
-
 package co.unicauca.justeat.client.infra;
 
 import co.unicauca.justeat.client.domain.User;

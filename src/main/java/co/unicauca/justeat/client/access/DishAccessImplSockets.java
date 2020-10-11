@@ -77,7 +77,7 @@ public class DishAccessImplSockets implements  IDishAccess{
         Protocol protocol =new Protocol();
         protocol.setResource("Dish");
         protocol.setAction("post");
-        protocol.addParameter("PlatoId", dish.getPlatoId()+"");
+        protocol.addParameter("PlatoId", dish.getPlatoId());
         protocol.addParameter("PlatNombre", dish.getPlanNom());
         protocol.addParameter("PlatDescripcion", dish.getPlacDesc());
         protocol.addParameter("PlatPrecion", dish.getPlaPrecio()+"");

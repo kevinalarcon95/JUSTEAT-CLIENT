@@ -97,8 +97,9 @@ public class GUIAddRestaurant extends javax.swing.JFrame {
         RestaurantService restaurantService = new RestaurantService(service);
         
         Restaurant restaurant = new Restaurant();
-        restaurant.setResId(Integer.parseInt(txtRestId.getText()));
-        restaurant.setAdminId(1061782); // Se valida con el loguin
+        restaurant.setResId((txtRestId.getText()));
+        //el usurio debe estar en la base de datos 
+        restaurant.setUserName("Josman");
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
         restaurant.setResCiudad(txtRestCity.getText());
