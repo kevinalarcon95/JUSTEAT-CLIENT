@@ -18,9 +18,9 @@ public class GUILoguin extends javax.swing.JFrame {
     public GUILoguin() {
         initComponents();
         setLocationRelativeTo(null);
-        //this.setResizable(false);
+        this.setResizable(false);
 
-        TextPrompt textUser = new TextPrompt(" Enter your username", txtUser);
+        TextPrompt textUser = new TextPrompt(" Enter you username", txtUser);
         TextPrompt textPass = new TextPrompt(" Enter you password", txtPassword);
     }
 
@@ -45,6 +45,8 @@ public class GUILoguin extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jLabel10 = new javax.swing.JLabel();
         btnLoguin = new rsbuttom.RSButtonMetro();
+        btnCreateAccount = new rsbuttom.RSButtonMetro();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -52,8 +54,6 @@ public class GUILoguin extends javax.swing.JFrame {
         btnDeliveryMan1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(6);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,9 +114,25 @@ public class GUILoguin extends javax.swing.JFrame {
                 btnLoguinActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 70, 30));
+        jPanel1.add(btnLoguin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 70, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 410));
+        btnCreateAccount.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_delivery_scooter_16.png")); // NOI18N
+        btnCreateAccount.setText("Create Account");
+        btnCreateAccount.setColorHover(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setColorNormal(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setColorPressed(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setColorTextHover(new java.awt.Color(255, 66, 79));
+        btnCreateAccount.setColorTextNormal(new java.awt.Color(153, 153, 153));
+        btnCreateAccount.setColorTextPressed(new java.awt.Color(255, 66, 79));
+        btnCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 110, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 90, 10));
 
         jPanel3.setBackground(new java.awt.Color(255, 66, 79));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,6 +154,11 @@ public class GUILoguin extends javax.swing.JFrame {
         btnAdmin.setColorTextHover(new java.awt.Color(204, 204, 204));
         btnAdmin.setColorTextPressed(new java.awt.Color(204, 204, 204));
         btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 20));
 
         btnDeliveryMan1.setBackground(new java.awt.Color(255, 66, 79));
@@ -151,27 +172,49 @@ public class GUILoguin extends javax.swing.JFrame {
         btnDeliveryMan1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel3.add(btnDeliveryMan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 130, 20));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 350, 410));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoguinActionPerformed
-    co.unicauca.justeat.client.infra.Security.usuario = new User(txtUser.getText(), txtPassword.getText(), "");
         
+
         //Aqui vendria el analizar si el usuario existe en el sistema
+        if(txtUser.getText().equalsIgnoreCase("invitado")){
+                    GUIPrincipal gp = new GUIPrincipal();
+                    gp.setExtendedState(MAXIMIZED_BOTH);
+                    gp.setVisible(true);
+        }
+        
+        co.unicauca.justeat.client.infra.Security.usuario = new User(txtUser.getText(), txtPassword.getText(), "");
+        
         if (true) {
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    GUIPrincipal gp = new GUIPrincipal();
-        gp.setExtendedState(MAXIMIZED_BOTH);
-        gp.setVisible(true);
+                    
+                    
+                    
                 }
             });
             this.dispose();
         } else {
             warningMessage("Contraseña incorrecta", "Atención");
         }
+                
     }//GEN-LAST:event_btnLoguinActionPerformed
 
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
@@ -179,6 +222,16 @@ public class GUILoguin extends javax.swing.JFrame {
             btnLoguinActionPerformed(null);
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
+
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
+        
+    }//GEN-LAST:event_btnAdminActionPerformed
+
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+        GUICreateAccount gca = new GUICreateAccount();
+        gca.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +274,7 @@ public class GUILoguin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro btnAdmin;
+    private rsbuttom.RSButtonMetro btnCreateAccount;
     private rsbuttom.RSButtonMetro btnDeliveryMan1;
     private rsbuttom.RSButtonMetro btnLoguin;
     private javax.swing.JLabel jLabel1;
@@ -233,6 +287,7 @@ public class GUILoguin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPasswordField txtPassword;
