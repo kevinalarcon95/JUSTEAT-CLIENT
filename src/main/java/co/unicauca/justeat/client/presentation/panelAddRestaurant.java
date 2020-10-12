@@ -8,12 +8,20 @@ import co.unicauca.justeat.commons.domain.Restaurant;
 
 /**
  *
- * @author Kevin Alarcón
+ * @author SANTIAGO MUÑOZ 
+ *         KEVIN ALARCON 
+ *         JUAN JOSE LOPEZ 
+ *         SANTIAGO CORDOBA 
+ *         DANIEL MUÑOZ
  */
 public class panelAddRestaurant extends javax.swing.JPanel {
 
     public panelAddRestaurant() {
         initComponents();
+        TextPrompt textRestId = new TextPrompt(" Enter the restaurant id", txtRestId);
+        TextPrompt textRestName = new TextPrompt(" Enter the restaurant name", txtRestName);
+        TextPrompt textRestAddress = new TextPrompt(" Enter the restaurant address", txtRestAddress);
+        TextPrompt textRestCity = new TextPrompt(" Enter the city of the restaurant.", txtRestCity);
     }
 
     /**
@@ -42,6 +50,8 @@ public class panelAddRestaurant extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         btnCreate = new rsbuttom.RSButtonMetro();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,54 +59,54 @@ public class panelAddRestaurant extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 66, 79));
         jLabel1.setText("Restaurant ID:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 130, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 66, 79));
         jLabel2.setText(" Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 80, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 80, -1));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 66, 79));
         jLabel3.setText("Address:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 90, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 66, 79));
         jLabel4.setText("City:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 60, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 60, -1));
 
         jLabel5.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 66, 79));
         jLabel5.setText("Category:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 80, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 80, -1));
 
         txtRestId.setBorder(null);
-        add(txtRestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 320, 30));
+        add(txtRestId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 320, 30));
 
         txtRestName.setBorder(null);
-        add(txtRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 320, 30));
+        add(txtRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 320, 30));
 
         txtRestAddress.setBorder(null);
-        add(txtRestAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 320, 30));
+        add(txtRestAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 320, 30));
 
         txtRestCity.setBorder(null);
-        add(txtRestCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 320, 30));
+        add(txtRestCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 320, 30));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipico", "Parrilla", "Gourtmet", "Criollo", "Pollo" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 190, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 190, -1));
 
         jButton1.setText("Add");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 60, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 60, -1));
 
-        jLabel6.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Registrer Restaurant");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 160, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 320, -1));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 320, 30));
-        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 320, 30));
-        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 320, 30));
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("New Restaurant");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 160, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 320, -1));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 320, 30));
+        add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 320, 30));
+        add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 320, 30));
 
         btnCreate.setBackground(new java.awt.Color(255, 66, 79));
         btnCreate.setText("Create");
@@ -109,7 +119,16 @@ public class panelAddRestaurant extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 80, 30));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 80, 30));
+
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel7.setText(" Enter the details of the restaurant you want to register.");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\img2.png")); // NOI18N
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, -10, 230, 570));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -120,7 +139,7 @@ public class panelAddRestaurant extends javax.swing.JPanel {
 
         Restaurant restaurant = new Restaurant();
         restaurant.setResId((txtRestId.getText()));
-        restaurant.setUserName(""); // Se valida con el loguin
+        restaurant.setUserName("fabRuiz"); // Se valida con el loguin
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
         restaurant.setResCiudad(txtRestCity.getText());
@@ -156,6 +175,8 @@ public class panelAddRestaurant extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

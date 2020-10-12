@@ -35,9 +35,9 @@ public class Factory {
     }
 
     /**
-     * Método que crea una instancia concreta de la jerarquia ICustomerService
+     * Método que crea una instancia concreta de la jerarquia IRestaurantService
      *
-     * @return una clase hija de la abstracción IRepositorioClientes
+     * @return una clase hija de la abstracción IRepositorioRestaurantes
      */
     public IRestaurantAccess getRestaurantService() {
 
@@ -53,6 +53,11 @@ public class Factory {
         return result;
     }
     
+     /**
+     * Método que crea una instancia concreta de la jerarquia IDishAccess
+     *
+     * @return una clase hija de la abstracción IRepositorioDish
+     */
     public IDishAccess getDishService(){
         IDishAccess result= null;
         String type= Utilities.loadProperty("restaurant.service");
@@ -61,6 +66,23 @@ public class Factory {
             case "default":
                 result= new DishAccessImplSockets();
                 break;
+        }
+        return result;
+    }
+    
+    /**
+     * Método que crea una instancia concreta de la jerarquia IUserAccess
+     *
+     * @return una clase hija de la abstracción IRepositorioUser
+     */
+    public IUserAccess getUserService(){
+        IUserAccess result = null;
+        String type = Utilities.loadProperty("restaurant.service");
+        
+        switch(type){
+            case "default":
+            result = new UserAccessImplSockets();
+            break;
         }
         return result;
     }

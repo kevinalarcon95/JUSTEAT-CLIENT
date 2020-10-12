@@ -11,8 +11,12 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
- * MUÑOZ
+ * @author 
+ * SANTIAGO MUÑOZ 
+ * KEVIN ALARCON 
+ * JUAN JOSE LOPEZ 
+ * SANTIAGO CORDOBA 
+ * DANIEL MUÑOZ
  */
 public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
@@ -119,7 +123,7 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
      * Convierte jsonRestaurant, proveniente del server socket, de json a un
      * objeto Restaurant
      *
-     * @param jsonCustomer objeto cliente en formato json
+     * @param jsonRestaurant objeto cliente en formato json
      */
     private Restaurant jsonToRestaurant(String jsonRestaurant) {
 

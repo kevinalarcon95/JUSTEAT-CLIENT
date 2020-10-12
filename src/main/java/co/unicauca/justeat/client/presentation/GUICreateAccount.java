@@ -1,9 +1,21 @@
 package co.unicauca.justeat.client.presentation;
 
+import co.unicauca.justeat.client.access.Factory;
+import co.unicauca.justeat.client.access.IUserAccess;
+import co.unicauca.justeat.client.domain.services.UserService;
+import static co.unicauca.justeat.client.infra.Messages.successMessage;
+import co.unicauca.justeat.commons.domain.User;
+
 /**
  *
- * @author Kevin Alarcón
+ * @author 
+ *      SANTIAGO MUÑOZ 
+ *      KEVIN ALARCON 
+ *      JUAN JOSE LOPEZ 
+ *      SANTIAGO CORDOBA 
+ *      DANIEL MUÑOZ
  */
+
 public class GUICreateAccount extends javax.swing.JFrame {
 
     /**
@@ -11,6 +23,8 @@ public class GUICreateAccount extends javax.swing.JFrame {
      */
     public GUICreateAccount() {
         initComponents();
+        setLocationRelativeTo(null);
+        this.setTitle("Create Account");
         TextPrompt textUserName = new TextPrompt("Enter a username", txtUserName);
         TextPrompt textPassword = new TextPrompt("Enter a Password", txtPassword);
         TextPrompt textName = new TextPrompt("Enter your name", txtName);
@@ -20,6 +34,7 @@ public class GUICreateAccount extends javax.swing.JFrame {
         TextPrompt textAddress = new TextPrompt("Enter a address", txtAddress);
         TextPrompt textPhone = new TextPrompt("Enter a phone number", txtPhone);
         
+
     }
 
     /**
@@ -35,7 +50,6 @@ public class GUICreateAccount extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         txtUserName = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        txtPassword = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -48,155 +62,129 @@ public class GUICreateAccount extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         txtPhone = new javax.swing.JTextField();
-        rSButtonMetro6 = new rsbuttom.RSButtonMetro();
+        btnCreateAccount = new rsbuttom.RSButtonMetro();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 127, 260, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 260, -1));
 
         txtUserName.setForeground(new java.awt.Color(102, 102, 102));
         txtUserName.setBorder(null);
-        txtUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserNameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 107, 260, 20));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 167, 260, -1));
-
-        txtPassword.setForeground(new java.awt.Color(102, 102, 102));
-        txtPassword.setBorder(null);
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 147, 260, 20));
+        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 260, 20));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 260, -1));
 
         txtName.setForeground(new java.awt.Color(102, 102, 102));
         txtName.setBorder(null);
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 187, 260, 20));
-        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 207, 260, -1));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 247, 260, -1));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 260, 20));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 260, -1));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 260, -1));
 
         txtLastName.setForeground(new java.awt.Color(102, 102, 102));
         txtLastName.setBorder(null);
-        txtLastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 227, 260, 20));
+        jPanel1.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 260, 20));
 
         txtIdNumber.setForeground(new java.awt.Color(102, 102, 102));
         txtIdNumber.setBorder(null);
-        txtIdNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdNumberActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtIdNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 267, 260, 20));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 287, 260, -1));
+        jPanel1.add(txtIdNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 260, 20));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 260, -1));
 
         txtCity.setForeground(new java.awt.Color(102, 102, 102));
         txtCity.setBorder(null);
-        txtCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 307, 260, 20));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 327, 260, -1));
+        jPanel1.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 260, 20));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 260, -1));
 
         txtAddress.setForeground(new java.awt.Color(102, 102, 102));
         txtAddress.setBorder(null);
-        txtAddress.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddressActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 347, 260, 20));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 367, 260, -1));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 402, 260, -1));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 260, 20));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 260, -1));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 260, -1));
 
         txtPhone.setForeground(new java.awt.Color(102, 102, 102));
         txtPhone.setBorder(null);
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 382, 260, 20));
+        jPanel1.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 260, 20));
 
-        rSButtonMetro6.setBackground(new java.awt.Color(255, 66, 79));
-        rSButtonMetro6.setText("Create Account");
-        rSButtonMetro6.setColorHover(new java.awt.Color(194, 18, 31));
-        rSButtonMetro6.setColorNormal(new java.awt.Color(255, 66, 79));
-        rSButtonMetro6.setColorPressed(new java.awt.Color(194, 18, 31));
-        rSButtonMetro6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        rSButtonMetro6.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateAccount.setBackground(new java.awt.Color(255, 66, 79));
+        btnCreateAccount.setText("Create Account");
+        btnCreateAccount.setColorHover(new java.awt.Color(194, 18, 31));
+        btnCreateAccount.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnCreateAccount.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro6ActionPerformed(evt);
+                btnCreateAccountActionPerformed(evt);
             }
         });
-        jPanel1.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 120, 30));
+        jPanel1.add(btnCreateAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 120, 30));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText(" Enter your personal details  to create an account");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 330, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\registration_50px.png")); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 40));
+
+        txtPassword.setBorder(null);
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 260, 20));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\img1.png")); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserNameActionPerformed
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+        IUserAccess service = Factory.getInstance().getUserService();
+        //Inyecta la dependencia
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
+        UserService userService = new UserService(service);
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+        User user = new User();
+        user.setUserName(txtUserName.getText());
+        user.setUserContrasena(txtPassword.getText());
+        user.setUserNombre(txtName.getText());
+        user.setUserApellido(txtLastName.getText());
+        user.setUserCedula(txtIdNumber.getText());
+        user.setUserCiudad(txtCity.getText());
+        user.setUserDireccion(txtAddress.getText());
+        user.setUserCelular(txtPhone.getText());
 
-    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameActionPerformed
+        try {
+            String response = userService.createUser(user);
+            successMessage("Usuario " + response + " agregado con exito.", "Atención");
+            clearCotronls();
+            txtUserName.setText("");
+        } catch (Exception ex) {
+            System.out.println(ex);
+            successMessage(ex.getMessage() + "Error", "Atención");
 
-    private void txtIdNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdNumberActionPerformed
-
-    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityActionPerformed
-
-    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddressActionPerformed
-
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
-
-    private void rSButtonMetro6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro6ActionPerformed
-        
-    }//GEN-LAST:event_rSButtonMetro6ActionPerformed
+        }
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,7 +222,12 @@ public class GUICreateAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rsbuttom.RSButtonMetro btnCreateAccount;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -243,14 +236,24 @@ public class GUICreateAccount extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private rsbuttom.RSButtonMetro rSButtonMetro6;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtIdNumber;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    private void clearCotronls() {
+        txtName.setText("");
+        txtPassword.setText("");
+        txtName.setText("");
+        txtLastName.setText("");
+        txtIdNumber.setText("");
+        txtCity.setText("");
+        txtAddress.setText("");
+        txtPhone.setText("");
+    }
 }

@@ -3,12 +3,9 @@ package co.unicauca.justeat.client.domain.services;
 import co.unicauca.justeat.client.access.IUserAccess;
 import co.unicauca.justeat.commons.domain.User;
 
-/**
- *
- * @author Kevin Alarcón
- */
-public class UserService {
-    /**
+
+
+ /**
  *
  * @author SANTIAGO MUÑOZ
  *         KEVIN ALARCON
@@ -17,21 +14,21 @@ public class UserService {
  *         DANIEL MUÑOZ.
  */
 
-public class RestaurantService {
+public class UserService {
     
     private final  IUserAccess service;
 
-    public RestaurantService(IUserAccess service) {
+    public UserService(IUserAccess service) {
         this.service = service;
     }
     
-   public User  findRestaurant(String id) throws Exception{
+   public User  findUser(String id) throws Exception{
        return service.findUser(id);
    }
    
-   public String createRestaurant(User user) throws Exception{
+   public String createUser(User user) throws Exception{
        return service.createUser(user);
    }
 }
 
-}
+

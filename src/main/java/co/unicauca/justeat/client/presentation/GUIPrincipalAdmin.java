@@ -1,18 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.justeat.client.presentation;
 
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Kevin Alarcón
+ * @author SANTIAGO MUÑOZ 
+ *         KEVIN ALARCON 
+ *         JUAN JOSE LOPEZ 
+ *         SANTIAGO CORDOBA 
+ *         DANIEL MUÑOZ
  */
+
 public class GUIPrincipalAdmin extends javax.swing.JFrame {
 
     /**
@@ -37,145 +38,108 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        rSButtonMetro3 = new rsbuttom.RSButtonMetro();
+        btnExit = new rsbuttom.RSButtonMetro();
         rSButtonMetro4 = new rsbuttom.RSButtonMetro();
         rSButtonMetro5 = new rsbuttom.RSButtonMetro();
         rSButtonMetro6 = new rsbuttom.RSButtonMetro();
         btnNewRestaurant = new rsbuttom.RSButtonMetro();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        rSButtonMetro7 = new rsbuttom.RSButtonMetro();
         jpContainer = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 66, 79));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rSButtonMetro3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_moleskine_16.png")); // NOI18N
-        rSButtonMetro3.setText("Records");
-        rSButtonMetro3.setColorHover(new java.awt.Color(251, 166, 163));
-        rSButtonMetro3.setColorNormal(new java.awt.Color(255, 255, 255));
-        rSButtonMetro3.setColorPressed(new java.awt.Color(204, 204, 204));
-        rSButtonMetro3.setColorTextHover(new java.awt.Color(166, 166, 166));
-        rSButtonMetro3.setColorTextNormal(new java.awt.Color(166, 166, 166));
-        rSButtonMetro3.setColorTextPressed(new java.awt.Color(166, 166, 166));
-        rSButtonMetro3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(rSButtonMetro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 170, 50));
+        btnExit.setBackground(new java.awt.Color(255, 66, 79));
+        btnExit.setText("Exit");
+        btnExit.setColorHover(new java.awt.Color(255, 66, 79));
+        btnExit.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnExit.setColorPressed(new java.awt.Color(255, 66, 79));
+        btnExit.setColorTextHover(new java.awt.Color(204, 204, 204));
+        btnExit.setColorTextPressed(new java.awt.Color(204, 204, 204));
+        btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 200, 50));
 
-        rSButtonMetro4.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_home_16.png")); // NOI18N
         rSButtonMetro4.setText("Home");
-        rSButtonMetro4.setColorHover(new java.awt.Color(251, 166, 163));
-        rSButtonMetro4.setColorNormal(new java.awt.Color(255, 255, 255));
-        rSButtonMetro4.setColorPressed(new java.awt.Color(204, 204, 204));
-        rSButtonMetro4.setColorTextHover(new java.awt.Color(166, 166, 166));
-        rSButtonMetro4.setColorTextNormal(new java.awt.Color(166, 166, 166));
-        rSButtonMetro4.setColorTextPressed(new java.awt.Color(166, 166, 166));
+        rSButtonMetro4.setColorHover(new java.awt.Color(255, 66, 79));
+        rSButtonMetro4.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro4.setColorPressed(new java.awt.Color(255, 66, 79));
+        rSButtonMetro4.setColorTextHover(new java.awt.Color(204, 204, 204));
+        rSButtonMetro4.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(rSButtonMetro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 170, -1));
+        jPanel3.add(rSButtonMetro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 200, 40));
 
-        rSButtonMetro5.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_cutlery_16.png")); // NOI18N
+        rSButtonMetro5.setBackground(new java.awt.Color(255, 66, 79));
         rSButtonMetro5.setText("Create Menu");
-        rSButtonMetro5.setColorHover(new java.awt.Color(251, 166, 163));
-        rSButtonMetro5.setColorNormal(new java.awt.Color(255, 255, 255));
-        rSButtonMetro5.setColorPressed(new java.awt.Color(204, 204, 204));
-        rSButtonMetro5.setColorTextHover(new java.awt.Color(166, 166, 166));
-        rSButtonMetro5.setColorTextNormal(new java.awt.Color(166, 166, 166));
-        rSButtonMetro5.setColorTextPressed(new java.awt.Color(166, 166, 166));
+        rSButtonMetro5.setColorHover(new java.awt.Color(255, 66, 79));
+        rSButtonMetro5.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro5.setColorPressed(new java.awt.Color(255, 66, 79));
+        rSButtonMetro5.setColorTextHover(new java.awt.Color(204, 204, 204));
+        rSButtonMetro5.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(rSButtonMetro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 170, 50));
+        jPanel3.add(rSButtonMetro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 50));
 
-        rSButtonMetro6.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_money_bag_16.png")); // NOI18N
+        rSButtonMetro6.setBackground(new java.awt.Color(255, 66, 79));
         rSButtonMetro6.setText("Payment");
-        rSButtonMetro6.setColorHover(new java.awt.Color(251, 166, 163));
-        rSButtonMetro6.setColorNormal(new java.awt.Color(255, 255, 255));
-        rSButtonMetro6.setColorPressed(new java.awt.Color(204, 204, 204));
-        rSButtonMetro6.setColorTextHover(new java.awt.Color(166, 166, 166));
-        rSButtonMetro6.setColorTextNormal(new java.awt.Color(166, 166, 166));
-        rSButtonMetro6.setColorTextPressed(new java.awt.Color(166, 166, 166));
+        rSButtonMetro6.setColorHover(new java.awt.Color(255, 66, 79));
+        rSButtonMetro6.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro6.setColorPressed(new java.awt.Color(255, 66, 79));
+        rSButtonMetro6.setColorTextHover(new java.awt.Color(204, 204, 204));
+        rSButtonMetro6.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 170, 50));
+        jPanel3.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 50));
 
-        btnNewRestaurant.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_create_16.png")); // NOI18N
+        btnNewRestaurant.setBackground(new java.awt.Color(255, 66, 79));
         btnNewRestaurant.setText("New Restaurant");
-        btnNewRestaurant.setColorHover(new java.awt.Color(251, 166, 163));
-        btnNewRestaurant.setColorNormal(new java.awt.Color(255, 255, 255));
-        btnNewRestaurant.setColorPressed(new java.awt.Color(204, 204, 204));
-        btnNewRestaurant.setColorTextHover(new java.awt.Color(166, 166, 166));
-        btnNewRestaurant.setColorTextNormal(new java.awt.Color(166, 166, 166));
-        btnNewRestaurant.setColorTextPressed(new java.awt.Color(166, 166, 166));
+        btnNewRestaurant.setColorHover(new java.awt.Color(255, 66, 79));
+        btnNewRestaurant.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnNewRestaurant.setColorPressed(new java.awt.Color(255, 66, 79));
+        btnNewRestaurant.setColorTextHover(new java.awt.Color(204, 204, 204));
+        btnNewRestaurant.setColorTextPressed(new java.awt.Color(204, 204, 204));
         btnNewRestaurant.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnNewRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewRestaurantActionPerformed(evt);
             }
         });
-        jPanel3.add(btnNewRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 170, 50));
+        jPanel3.add(btnNewRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 200, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\logo_justeatgary.png")); // NOI18N
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        rSButtonMetro7.setBackground(new java.awt.Color(255, 66, 79));
+        rSButtonMetro7.setText("Records");
+        rSButtonMetro7.setColorHover(new java.awt.Color(255, 66, 79));
+        rSButtonMetro7.setColorNormal(new java.awt.Color(255, 66, 79));
+        rSButtonMetro7.setColorPressed(new java.awt.Color(255, 66, 79));
+        rSButtonMetro7.setColorTextHover(new java.awt.Color(204, 204, 204));
+        rSButtonMetro7.setColorTextPressed(new java.awt.Color(204, 204, 204));
+        rSButtonMetro7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(rSButtonMetro7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 50));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 54, Short.MAX_VALUE)
-        );
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         jpContainer.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jpContainerLayout = new javax.swing.GroupLayout(jpContainer);
-        jpContainer.setLayout(jpContainerLayout);
-        jpContainerLayout.setHorizontalGroup(
-            jpContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jpContainerLayout.setVerticalGroup(
-            jpContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jpContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jpContainer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jpContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 640, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -183,14 +147,23 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
 
     private void btnNewRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRestaurantActionPerformed
         panelAddRestaurant paneAddRest = new panelAddRestaurant();
-        paneAddRest.setSize(430,474);
-        paneAddRest.setLocation(10,5);
+        paneAddRest.setSize(811,532);
+        paneAddRest.setLocation(20,5);
+        this.setTitle("Administrator");
         
         jpContainer.removeAll();
         jpContainer.add(paneAddRest, BorderLayout.CENTER);
         jpContainer.revalidate();
         jpContainer.repaint();
     }//GEN-LAST:event_btnNewRestaurantActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+      if(JOptionPane.showConfirmDialog(rootPane, "¿do you want to exit the program?", "Exit", JOptionPane.YES_OPTION) == JOptionPane.YES_OPTION){
+        GUILoguin loguin = new GUILoguin();
+        loguin.setVisible(true);
+        this.dispose();
+    }
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,15 +202,14 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rsbuttom.RSButtonMetro btnExit;
     private rsbuttom.RSButtonMetro btnNewRestaurant;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jpContainer;
-    private rsbuttom.RSButtonMetro rSButtonMetro3;
     private rsbuttom.RSButtonMetro rSButtonMetro4;
     private rsbuttom.RSButtonMetro rSButtonMetro5;
     private rsbuttom.RSButtonMetro rSButtonMetro6;
+    private rsbuttom.RSButtonMetro rSButtonMetro7;
     // End of variables declaration//GEN-END:variables
 }

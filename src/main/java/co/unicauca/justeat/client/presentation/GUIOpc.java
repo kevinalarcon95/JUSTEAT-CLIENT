@@ -29,7 +29,7 @@ public class GUIOpc extends javax.swing.JFrame {
         btnAdmin = new rsbuttom.RSButtonMetro();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -39,6 +39,11 @@ public class GUIOpc extends javax.swing.JFrame {
         btnUser.setColorHover(new java.awt.Color(194, 18, 31));
         btnUser.setColorNormal(new java.awt.Color(255, 66, 79));
         btnUser.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         btnAdmin.setBackground(new java.awt.Color(255, 66, 79));
@@ -46,6 +51,11 @@ public class GUIOpc extends javax.swing.JFrame {
         btnAdmin.setColorHover(new java.awt.Color(194, 18, 31));
         btnAdmin.setColorNormal(new java.awt.Color(255, 66, 79));
         btnAdmin.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -57,15 +67,27 @@ public class GUIOpc extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
+        GUIPrincipalUser gp = new GUIPrincipalUser();
+        gp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnUserActionPerformed
+
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
+        GUIPrincipalAdmin gpa = new GUIPrincipalAdmin();
+        gpa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAdminActionPerformed
 
     /**
      * @param args the command line arguments

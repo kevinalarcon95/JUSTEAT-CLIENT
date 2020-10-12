@@ -7,8 +7,11 @@ import java.awt.event.KeyEvent;
 
 /**
  *
- * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
- * MUÑOZ
+ * @author SANTIAGO MUÑOZ 
+ *         KEVIN ALARCON 
+ *         JUAN JOSE LOPEZ 
+ *         SANTIAGO CORDOBA 
+ *         DANIEL MUÑOZ
  */
 public class GUILoguin extends javax.swing.JFrame {
 
@@ -19,6 +22,7 @@ public class GUILoguin extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setTitle("Loguin");
 
         TextPrompt textUser = new TextPrompt(" Enter you username", txtUser);
         TextPrompt textPass = new TextPrompt(" Enter you password", txtPassword);
@@ -50,8 +54,6 @@ public class GUILoguin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnAdmin = new rsbuttom.RSButtonMetro();
-        btnDeliveryMan1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,33 +147,6 @@ public class GUILoguin extends javax.swing.JFrame {
         jLabel4.setText(" Find your favorite restaurants and place your orders.");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 236, -1, -1));
 
-        btnAdmin.setBackground(new java.awt.Color(255, 66, 79));
-        btnAdmin.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_administrator_male_16.png")); // NOI18N
-        btnAdmin.setText("Admin");
-        btnAdmin.setColorHover(new java.awt.Color(255, 66, 79));
-        btnAdmin.setColorNormal(new java.awt.Color(255, 66, 79));
-        btnAdmin.setColorPressed(new java.awt.Color(255, 66, 79));
-        btnAdmin.setColorTextHover(new java.awt.Color(204, 204, 204));
-        btnAdmin.setColorTextPressed(new java.awt.Color(204, 204, 204));
-        btnAdmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 120, 20));
-
-        btnDeliveryMan1.setBackground(new java.awt.Color(255, 66, 79));
-        btnDeliveryMan1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\icons8_delivery_scooter_16.png")); // NOI18N
-        btnDeliveryMan1.setText("Delivery Man");
-        btnDeliveryMan1.setColorHover(new java.awt.Color(255, 66, 79));
-        btnDeliveryMan1.setColorNormal(new java.awt.Color(255, 66, 79));
-        btnDeliveryMan1.setColorPressed(new java.awt.Color(255, 66, 79));
-        btnDeliveryMan1.setColorTextHover(new java.awt.Color(204, 204, 204));
-        btnDeliveryMan1.setColorTextPressed(new java.awt.Color(204, 204, 204));
-        btnDeliveryMan1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel3.add(btnDeliveryMan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 130, 20));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,10 +170,16 @@ public class GUILoguin extends javax.swing.JFrame {
 
         //Aqui vendria el analizar si el usuario existe en el sistema
         if(txtUser.getText().equalsIgnoreCase("invitado")){
-                    GUIPrincipal gp = new GUIPrincipal();
-                    gp.setExtendedState(MAXIMIZED_BOTH);
+                    GUIPrincipalUser gp = new GUIPrincipalUser();
+                    //gp.setExtendedState(MAXIMIZED_BOTH);
                     gp.setVisible(true);
-        }
+        } 
+                GUIOpc gopc = new GUIOpc();
+                //gopc.setExtendedState(MAXIMIZED_BOTH);
+                  gopc.setVisible(true);
+                  
+                  this.dispose();
+        
         
         co.unicauca.justeat.client.infra.Security.usuario = new User(txtUser.getText(), txtPassword.getText(), "");
         
@@ -223,14 +204,10 @@ public class GUILoguin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
 
-    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        
-    }//GEN-LAST:event_btnAdminActionPerformed
-
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         GUICreateAccount gca = new GUICreateAccount();
         gca.setVisible(true);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     /**
@@ -266,16 +243,14 @@ public class GUILoguin extends javax.swing.JFrame {
             public void run() {
                GUILoguin loguin = new GUILoguin();
                loguin.setVisible(true);
-               loguin.setExtendedState(MAXIMIZED_BOTH);
+               //loguin.setExtendedState(MAXIMIZED_BOTH);
                loguin.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro btnAdmin;
     private rsbuttom.RSButtonMetro btnCreateAccount;
-    private rsbuttom.RSButtonMetro btnDeliveryMan1;
     private rsbuttom.RSButtonMetro btnLoguin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -293,4 +268,8 @@ public class GUILoguin extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+
+    private boolean existUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
