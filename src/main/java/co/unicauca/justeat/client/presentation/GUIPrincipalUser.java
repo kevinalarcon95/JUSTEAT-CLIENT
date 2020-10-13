@@ -1,5 +1,11 @@
 package co.unicauca.justeat.client.presentation;
 
+import co.unicauca.justeat.client.access.Factory;
+import co.unicauca.justeat.client.access.IRestaurantAccess;
+import co.unicauca.justeat.client.domain.services.RestaurantService;
+import static co.unicauca.justeat.client.infra.Messages.successMessage;
+import co.unicauca.justeat.commons.domain.Restaurant;
+
 /**
  *
  * @author Kevin Alarcón.
@@ -14,6 +20,8 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
         TextPrompt textSearch = new TextPrompt(" Find restaurants near you", txtSearch);
+        showRestaurantList();
+        
     }
 
     /**
@@ -24,6 +32,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
@@ -31,15 +40,12 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        rSButtonMetro5 = new rsbuttom.RSButtonMetro();
-        btnRegistro = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        btnRegistro1 = new javax.swing.JButton();
-        rSButtonMetro6 = new rsbuttom.RSButtonMetro();
+        btnEnter = new rsbuttom.RSButtonMetro();
+        btnSearch = new rsbuttom.RSButtonMetro();
+        lblRest = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel4.setBackground(new java.awt.Color(245, 243, 244));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,49 +82,69 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\just-eat-color.png")); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
-        rSButtonMetro5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        rSButtonMetro5.setText("Enter");
-        rSButtonMetro5.setColorHover(new java.awt.Color(194, 18, 31));
-        rSButtonMetro5.setColorNormal(new java.awt.Color(255, 66, 79));
-        rSButtonMetro5.setColorPressed(new java.awt.Color(194, 18, 31));
-        rSButtonMetro5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel4.add(rSButtonMetro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 70, 20));
+        btnEnter.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnEnter.setText("Enter");
+        btnEnter.setColorHover(new java.awt.Color(194, 18, 31));
+        btnEnter.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnEnter.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEnter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 70, 20));
 
-        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegistro.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 66, 79));
-        btnRegistro.setText("Delivery Man");
-        btnRegistro.setBorder(null);
-        btnRegistro.setBorderPainted(false);
-        btnRegistro.setContentAreaFilled(false);
-        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistro.setSelected(true);
-        jPanel4.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 110, 20));
-        jPanel4.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 90, 10));
-        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 90, 10));
+        btnSearch.setBackground(new java.awt.Color(255, 66, 79));
+        btnSearch.setText("Search");
+        btnSearch.setColorHover(new java.awt.Color(194, 18, 31));
+        btnSearch.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnSearch.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 60, 40));
 
-        btnRegistro1.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegistro1.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        btnRegistro1.setForeground(new java.awt.Color(255, 66, 79));
-        btnRegistro1.setText("Restaurant");
-        btnRegistro1.setBorder(null);
-        btnRegistro1.setBorderPainted(false);
-        btnRegistro1.setContentAreaFilled(false);
-        btnRegistro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnRegistro1.setSelected(true);
-        jPanel4.add(btnRegistro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, 110, 20));
+        lblRest.setText("jLabel2");
+        jPanel4.add(lblRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
 
-        rSButtonMetro6.setBackground(new java.awt.Color(255, 66, 79));
-        rSButtonMetro6.setText("Search");
-        rSButtonMetro6.setColorHover(new java.awt.Color(194, 18, 31));
-        rSButtonMetro6.setColorNormal(new java.awt.Color(255, 66, 79));
-        rSButtonMetro6.setColorPressed(new java.awt.Color(194, 18, 31));
-        jPanel4.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 60, 40));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 813, 494));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.ipadx = 33;
+        gridBagConstraints.ipady = 294;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 2);
+        getContentPane().add(jPanel4, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnterActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String nameRest = txtSearch.getText();
+        
+        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        
+        RestaurantService restaurantService = new RestaurantService(service);
+       
+        Restaurant restaurant;
+        try {
+            restaurant = restaurantService.findRestaurant(nameRest);
+        } catch (Exception e) {
+            successMessage(e.getMessage(),"Atención");
+            return;
+        }
+        txtSearch.setText("");
+        showData(restaurant);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,17 +185,22 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistro;
-    private javax.swing.JButton btnRegistro1;
+    private rsbuttom.RSButtonMetro btnEnter;
+    private rsbuttom.RSButtonMetro btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private rsbuttom.RSButtonMetro rSButtonMetro5;
-    private rsbuttom.RSButtonMetro rSButtonMetro6;
+    private javax.swing.JLabel lblRest;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    private void showRestaurantList() {
+        
+    }
+
+    private void showData(Restaurant restaurant) {
+       lblRest.setText(restaurant.getResNom());
+    }
 }

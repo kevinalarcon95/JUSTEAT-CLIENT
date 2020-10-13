@@ -87,7 +87,7 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
     private String findRestaurantRequestJson(String idRestaurant) {
 
         Protocol protocol = new Protocol();
-        protocol.setResource("restaurant");
+        protocol.setResource("Restaurant");
         protocol.setAction("get");
         protocol.addParameter("id", idRestaurant);
 
@@ -160,5 +160,6 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
         return requestJson;
     }
-
+    
+    
 }

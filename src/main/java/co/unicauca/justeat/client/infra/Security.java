@@ -11,4 +11,6 @@ import co.unicauca.justeat.client.domain.User;
  */
 public class Security {
     public static User usuario;    
+    
+    
 }

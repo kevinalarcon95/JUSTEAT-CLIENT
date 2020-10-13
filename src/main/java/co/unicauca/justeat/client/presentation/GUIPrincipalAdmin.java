@@ -1,8 +1,7 @@
 package co.unicauca.justeat.client.presentation;
 
+import static co.unicauca.justeat.client.infra.Messages.warningMessage;
 import java.awt.BorderLayout;
-import java.awt.Image;
-import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,8 +22,8 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         
-        Image icon = Toolkit.getDefaultToolkit().getImage("./src/resources/fondo.jpg");
-        this.setIconImage(icon);
+//        Image icon = Toolkit.getDefaultToolkit().getImage("./src/resources/fondo.jpg");
+//        this.setIconImage(icon);
     }
 
     /**
@@ -96,6 +95,11 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
         rSButtonMetro6.setColorTextHover(new java.awt.Color(204, 204, 204));
         rSButtonMetro6.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        rSButtonMetro6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMetro6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonMetro6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 50));
 
         btnNewRestaurant.setBackground(new java.awt.Color(255, 66, 79));
@@ -121,6 +125,11 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
         rSButtonMetro7.setColorTextHover(new java.awt.Color(204, 204, 204));
         rSButtonMetro7.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        rSButtonMetro7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMetro7ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonMetro7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 200, 50));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
@@ -164,6 +173,14 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
         this.dispose();
     }
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void rSButtonMetro6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro6ActionPerformed
+        warningMessage("En construcción....", "Atención");
+    }//GEN-LAST:event_rSButtonMetro6ActionPerformed
+
+    private void rSButtonMetro7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro7ActionPerformed
+        warningMessage("En construcción....", "Atención");
+    }//GEN-LAST:event_rSButtonMetro7ActionPerformed
 
     /**
      * @param args the command line arguments
