@@ -2,6 +2,7 @@ package co.unicauca.justeat.client.domain.services;
 
 import co.unicauca.justeat.client.access.IRestaurantAccess;
 import co.unicauca.justeat.commons.domain.Restaurant;
+import java.util.List;
 
 /**
  *
@@ -26,5 +27,9 @@ public class RestaurantService {
    
    public String createRestaurant(Restaurant restaurant) throws Exception{
        return service.createRestaurant(restaurant);
+   }
+   
+   public List<Restaurant> listRestaurant() throws Exception{
+   return service.ListRestaurant();
    }
 }

@@ -1,6 +1,7 @@
 package co.unicauca.justeat.client.access;
 
 import co.unicauca.justeat.commons.domain.Restaurant;
+import java.util.List;
 
 /**
  *
@@ -29,4 +30,6 @@ public interface IRestaurantAccess {
      */
     
     public String createRestaurant(Restaurant restaurant) throws Exception;
+    
+    public List<Restaurant> ListRestaurant() throws Exception;
 }

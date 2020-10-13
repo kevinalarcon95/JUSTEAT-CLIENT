@@ -6,17 +6,14 @@ import co.unicauca.justeat.commons.infra.JsonError;
 import co.unicauca.justeat.commons.infra.Protocol;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author 
- * SANTIAGO MUÑOZ 
- * KEVIN ALARCON 
- * JUAN JOSE LOPEZ 
- * SANTIAGO CORDOBA 
- * DANIEL MUÑOZ
+ * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
+ * MUÑOZ
  */
 public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
@@ -131,6 +128,13 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         Restaurant restaurant = gson.fromJson(jsonRestaurant, Restaurant.class);
 
         return restaurant;
+    }
+
+    private List<Restaurant> jsonToListRestaurant(String jsonRestaurant) {
+        Gson gson = new Gson();
+        List<Restaurant> listRestaurant;
+        listRestaurant = gson.fromJson(jsonRestaurant, List.class);
+        return listRestaurant;
 
     }
 
@@ -160,6 +164,33 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
         return requestJson;
     }
-    
-    
+
+    @Override
+    public List<Restaurant> ListRestaurant() throws Exception {
+        String jsonResponse = null;
+        String requestJson = ListRestaurant().toString();
+
+        try {
+            mySocket.connect();
+            jsonResponse = mySocket.sendStream(requestJson);
+            mySocket.closeStream();
+            mySocket.disconnect();
+        } catch (IOException ex) {
+            Logger.getLogger(RestaurantAccessImplSockets.class.getName()).log(Level.SEVERE, "No hubo conexión con el servidor", ex);
+        }
+        if (jsonResponse == null) {
+            throw new Exception("No se pudo conectar con el servidor. Revise la red o que el servidor este escuchando");
+        } else {
+            if (jsonResponse.contains("error")) {
+                //Devolvio algun error
+                Logger.getLogger(RestaurantAccessImplSockets.class.getName()).log(Level.INFO, jsonResponse);
+                throw new Exception(extractMessages(jsonResponse));
+            } else {
+                //Encontro el Restaurant
+                List<Restaurant> restaurant = jsonToListRestaurant(jsonResponse);
+                return restaurant;
+            }
+        }
+    }
+
 }

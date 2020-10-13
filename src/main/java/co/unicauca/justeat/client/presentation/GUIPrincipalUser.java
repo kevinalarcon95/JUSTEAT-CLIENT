@@ -5,6 +5,10 @@ import co.unicauca.justeat.client.access.IRestaurantAccess;
 import co.unicauca.justeat.client.domain.services.RestaurantService;
 import static co.unicauca.justeat.client.infra.Messages.successMessage;
 import co.unicauca.justeat.commons.domain.Restaurant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,8 +24,12 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
         TextPrompt textSearch = new TextPrompt(" Find restaurants near you", txtSearch);
-        showRestaurantList();
-        
+        try {
+            llenarTabla();
+        } catch (Exception ex) {
+            Logger.getLogger(GUIPrincipalUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -40,9 +48,9 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnEnter = new rsbuttom.RSButtonMetro();
-        btnSearch = new rsbuttom.RSButtonMetro();
         lblRest = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableRestaurantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -51,8 +59,6 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\search_26px.png")); // NOI18N
 
         txtSearch.setBorder(null);
 
@@ -78,37 +84,25 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 40));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\just-eat-color.png")); // NOI18N
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
-
-        btnEnter.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnEnter.setText("Enter");
-        btnEnter.setColorHover(new java.awt.Color(194, 18, 31));
-        btnEnter.setColorNormal(new java.awt.Color(255, 66, 79));
-        btnEnter.setColorPressed(new java.awt.Color(194, 18, 31));
-        btnEnter.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnEnter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnterActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnEnter, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 70, 20));
-
-        btnSearch.setBackground(new java.awt.Color(255, 66, 79));
-        btnSearch.setText("Search");
-        btnSearch.setColorHover(new java.awt.Color(194, 18, 31));
-        btnSearch.setColorNormal(new java.awt.Color(255, 66, 79));
-        btnSearch.setColorPressed(new java.awt.Color(194, 18, 31));
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 60, 40));
 
         lblRest.setText("jLabel2");
         jPanel4.add(lblRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jTableRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ResID", "UserName", "NombreRes", "Direccion", "ciudad", "tematica"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableRestaurantes);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 490, 240));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -130,16 +124,16 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String nameRest = txtSearch.getText();
-        
+
         IRestaurantAccess service = Factory.getInstance().getRestaurantService();
-        
+
         RestaurantService restaurantService = new RestaurantService(service);
-       
+
         Restaurant restaurant;
         try {
             restaurant = restaurantService.findRestaurant(nameRest);
         } catch (Exception e) {
-            successMessage(e.getMessage(),"Atención");
+            successMessage(e.getMessage(), "Atención");
             return;
         }
         txtSearch.setText("");
@@ -185,22 +179,48 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro btnEnter;
-    private rsbuttom.RSButtonMetro btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTableRestaurantes;
     private javax.swing.JLabel lblRest;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
-    private void showRestaurantList() {
-        
-    }
 
     private void showData(Restaurant restaurant) {
-       lblRest.setText(restaurant.getResCiudad());
+        lblRest.setText(restaurant.getResCiudad());
+    }
+
+    private void llenarTabla() throws Exception {
+        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        RestaurantService objRestaurantService = new RestaurantService(service);
+
+        //Restaurant objRestaurant = new Restaurant();
+        List<Restaurant> objListRestaurante = new ArrayList<>();
+
+        objListRestaurante = objRestaurantService.listRestaurant();
+
+        String matriz[][] = new String[objListRestaurante.size()][6];
+
+        for (int i = 0; i < objListRestaurante.size(); i++) {
+            matriz[i][0] = objListRestaurante.get(i).getResId();
+            matriz[i][1] = objListRestaurante.get(i).getUserName();
+            matriz[i][2] = objListRestaurante.get(i).getResNom();
+            matriz[i][3] = objListRestaurante.get(i).getResDireccion();
+            matriz[i][4] = objListRestaurante.get(i).getResCiudad();
+            matriz[i][5] = objListRestaurante.get(i).getResTematicaComida();
+        }
+
+        jTableRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
+                matriz,
+                new String[]{
+                    "ResID", "UserName", "NombreRes", "Direccion", "ciudad", "tematica"
+                }
+        ));
+
     }
 }
