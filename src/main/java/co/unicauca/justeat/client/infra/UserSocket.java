@@ -33,7 +33,7 @@ public class UserSocket {
     /**
      * Puerto del server socket
      */
-    private final int PORT = Integer.parseInt(Utilities.loadProperty("server.port"));
+    private final int PORT = Integer.parseInt(Utilities.loadProperty("server.port2"));
 
     /**
      * Envia una solicitud desde la aplicación cliente al servidor mediate el

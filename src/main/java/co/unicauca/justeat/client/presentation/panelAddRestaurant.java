@@ -139,7 +139,7 @@ public class panelAddRestaurant extends javax.swing.JPanel {
 
         Restaurant restaurant = new Restaurant();
         restaurant.setResId((txtRestId.getText()));
-        restaurant.setUserName("fabRuiz"); // Se valida con el loguin
+        restaurant.setUserName("Josman"); // Se valida con el loguin
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
         restaurant.setResCiudad(txtRestCity.getText());

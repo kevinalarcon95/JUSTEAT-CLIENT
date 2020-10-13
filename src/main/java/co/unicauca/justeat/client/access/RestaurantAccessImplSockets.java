@@ -87,9 +87,9 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
     private String findRestaurantRequestJson(String idRestaurant) {
 
         Protocol protocol = new Protocol();
-        protocol.setResource("Restaurant");
+        protocol.setResource("Restaurante");
         protocol.setAction("get");
-        protocol.addParameter("id", idRestaurant);
+        protocol.addParameter("RestNombre", idRestaurant);
 
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);

@@ -201,6 +201,6 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     private void showData(Restaurant restaurant) {
-       lblRest.setText(restaurant.getResNom());
+       lblRest.setText(restaurant.getResCiudad());
     }
 }
