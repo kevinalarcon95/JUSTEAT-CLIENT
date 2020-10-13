@@ -168,7 +168,7 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
     @Override
     public List<Restaurant> ListRestaurant() throws Exception {
         String jsonResponse = null;
-        String requestJson = ListRestaurant().toString();
+        String requestJson = findRestaurantRequestJson("rikis");
 
         try {
             mySocket.connect();
