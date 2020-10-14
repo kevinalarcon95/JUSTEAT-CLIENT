@@ -117,7 +117,7 @@ public class DishAccessImplSockets implements IDishAccess {
         protocol.addParameter("PlatoId", dish.getPlatoId());
         protocol.addParameter("PlatNombre", dish.getPlanNom());
         protocol.addParameter("PlatDescripcion", dish.getPlacDesc());
-        protocol.addParameter("PlatPrecion", dish.getPlaPrecio() + "");
+        protocol.addParameter("PlatPrecion", dish.getPlaPrecio() +"");
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("Json" + requestJson);

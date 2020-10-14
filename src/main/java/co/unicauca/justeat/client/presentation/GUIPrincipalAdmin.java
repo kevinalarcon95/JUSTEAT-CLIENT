@@ -85,6 +85,11 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
         rSButtonMetro5.setColorTextHover(new java.awt.Color(204, 204, 204));
         rSButtonMetro5.setColorTextPressed(new java.awt.Color(204, 204, 204));
         rSButtonMetro5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        rSButtonMetro5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMetro5ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonMetro5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 50));
 
         rSButtonMetro6.setBackground(new java.awt.Color(255, 66, 79));
@@ -181,6 +186,18 @@ public class GUIPrincipalAdmin extends javax.swing.JFrame {
     private void rSButtonMetro7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro7ActionPerformed
         warningMessage("En construcción....", "Atención");
     }//GEN-LAST:event_rSButtonMetro7ActionPerformed
+
+    private void rSButtonMetro5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro5ActionPerformed
+       panelAddMenu panelAddMe= new panelAddMenu();
+        panelAddMe.setSize(811,532);
+        panelAddMe.setLocation(20,5);
+        this.setTitle("Administrator");
+        
+        jpContainer.removeAll();
+        jpContainer.add(panelAddMe, BorderLayout.CENTER);
+        jpContainer.revalidate();
+        jpContainer.repaint();
+    }//GEN-LAST:event_rSButtonMetro5ActionPerformed
 
     /**
      * @param args the command line arguments
