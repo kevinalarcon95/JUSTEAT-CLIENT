@@ -5,6 +5,7 @@ import co.unicauca.justeat.client.access.IRestaurantAccess;
 import co.unicauca.justeat.client.domain.services.RestaurantService;
 import static co.unicauca.justeat.client.infra.Messages.successMessage;
 import co.unicauca.justeat.commons.domain.Restaurant;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -51,7 +52,7 @@ public class panelAddRestaurant extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         btnCreate = new rsbuttom.RSButtonMetro();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblImg = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,19 +128,19 @@ public class panelAddRestaurant extends javax.swing.JPanel {
         jLabel7.setText(" Enter the details of the restaurant you want to register.");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\resources\\img2.png")); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, -10, 230, 570));
+        lblImg.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\main\\java\\resources\\img2.png")); // NOI18N
+        add(lblImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 220, 550));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-         IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
         //Inyecta la dependencia
 
         RestaurantService restaurantService = new RestaurantService(service);
 
         Restaurant restaurant = new Restaurant();
         restaurant.setResId((txtRestId.getText()));
-        restaurant.setUserName("Josman"); // Se valida con el loguin
+        restaurant.setUserName("fabRuiz"); // Se valida con el loguin
         restaurant.setResNom(txtRestName.getText());
         restaurant.setResDireccion(txtRestAddress.getText());
         restaurant.setResCiudad(txtRestCity.getText());
@@ -176,11 +177,11 @@ public class panelAddRestaurant extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JTextField txtRestAddress;
     private javax.swing.JTextField txtRestCity;
     private javax.swing.JTextField txtRestId;

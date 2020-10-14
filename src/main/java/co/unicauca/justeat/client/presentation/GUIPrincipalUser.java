@@ -9,11 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Kevin Alarcón.
+ * @author SANTIAGO MUÑOZ 
+ *         KEVIN ALARCON 
+ *         JUAN JOSE LOPEZ 
+ *         SANTIAGO CORDOBA 
+ *         DANIEL MUÑOZ
  */
+
 public class GUIPrincipalUser extends javax.swing.JFrame {
 
     /**
@@ -22,7 +28,6 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     public GUIPrincipalUser() {
         initComponents();
         setLocationRelativeTo(null);
-        setExtendedState(MAXIMIZED_BOTH);
         TextPrompt textSearch = new TextPrompt(" Find restaurants near you", txtSearch);
         try {
             
@@ -40,7 +45,6 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jSeparator3 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
@@ -51,15 +55,20 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         lblRest = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRestaurantes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnViewRest = new rsbuttom.RSButtonMetro();
+        btnSearch1 = new rsbuttom.RSButtonMetro();
+        btnBack = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(245, 243, 244));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\main\\java\\resources\\search_26px.png")); // NOI18N
 
         txtSearch.setBorder(null);
 
@@ -86,9 +95,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 290, 40));
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
-
-        lblRest.setText("jLabel2");
-        jPanel4.add(lblRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        jPanel4.add(lblRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 240, 40));
 
         jTableRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,26 +110,52 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTableRestaurantes);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 490, 240));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 780, 240));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Lab-Software 2\\Just Eat\\Proyecto\\JustEat-Client\\src\\main\\java\\resources\\just-eat-color.png")); // NOI18N
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
+
+        btnViewRest.setBackground(new java.awt.Color(255, 66, 79));
+        btnViewRest.setText("View Restaurant");
+        btnViewRest.setColorHover(new java.awt.Color(194, 18, 31));
+        btnViewRest.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnViewRest.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnViewRest.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnViewRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnViewRestActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
+        jPanel4.add(btnViewRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 120, 30));
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
-        gridBagConstraints.ipadx = 33;
-        gridBagConstraints.ipady = 294;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 2);
-        getContentPane().add(jPanel4, gridBagConstraints);
+        btnSearch1.setBackground(new java.awt.Color(255, 66, 79));
+        btnSearch1.setText("Search");
+        btnSearch1.setColorHover(new java.awt.Color(194, 18, 31));
+        btnSearch1.setColorNormal(new java.awt.Color(255, 66, 79));
+        btnSearch1.setColorPressed(new java.awt.Color(194, 18, 31));
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 70, 40));
+
+        btnBack.setText("Back");
+        btnBack.setColorHover(new java.awt.Color(245, 243, 244));
+        btnBack.setColorNormal(new java.awt.Color(245, 243, 244));
+        btnBack.setColorPressed(new java.awt.Color(245, 243, 244));
+        btnBack.setColorTextHover(new java.awt.Color(102, 102, 102));
+        btnBack.setColorTextNormal(new java.awt.Color(255, 66, 79));
+        btnBack.setColorTextPressed(new java.awt.Color(102, 102, 102));
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 50, 10));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -8, 840, 890));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,10 +164,18 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEnterActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void btnViewRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRestActionPerformed
+       try {
+            llenarTabla();
+        } catch (Exception ex) {
+            Logger.getLogger(GUIPrincipalUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnViewRestActionPerformed
+
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
         String nameRest = txtSearch.getText();
 
-        IRestaurantAccess service = Factory.getInstance().getsRestaurantSerive();
+        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
 
         RestaurantService restaurantService = new RestaurantService(service);
 
@@ -142,20 +183,17 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         try {
             restaurant = restaurantService.findRestaurant(nameRest);
         } catch (Exception e) {
-            successMessage(e.getMessage(), "Atención");
+            successMessage(e.getMessage(),"Atención");
             return;
         }
         txtSearch.setText("");
         showData(restaurant);
-    }//GEN-LAST:event_btnSearchActionPerformed
+    }//GEN-LAST:event_btnSearch1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            llenarTabla();
-        } catch (Exception ex) {
-            Logger.getLogger(GUIPrincipalUser.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+       new GUIOpc().setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,8 +234,11 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private rsbuttom.RSButtonMetro btnBack;
+    private rsbuttom.RSButtonMetro btnSearch1;
+    private rsbuttom.RSButtonMetro btnViewRest;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -210,6 +251,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
 
 
     private void showData(Restaurant restaurant) {
+        JOptionPane.showMessageDialog(rootPane, restaurant.toString());
         lblRest.setText(restaurant.getResCiudad());
     }
 
