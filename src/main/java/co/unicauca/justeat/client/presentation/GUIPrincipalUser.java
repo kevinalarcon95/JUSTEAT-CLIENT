@@ -25,7 +25,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         TextPrompt textSearch = new TextPrompt(" Find restaurants near you", txtSearch);
         try {
-            llenarTabla();
+            
         } catch (Exception ex) {
             Logger.getLogger(GUIPrincipalUser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,6 +51,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         lblRest = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableRestaurantes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -104,6 +105,14 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 490, 240));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -125,7 +134,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String nameRest = txtSearch.getText();
 
-        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        IRestaurantAccess service = Factory.getInstance().getsRestaurantSerive();
 
         RestaurantService restaurantService = new RestaurantService(service);
 
@@ -139,6 +148,14 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
         txtSearch.setText("");
         showData(restaurant);
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            llenarTabla();
+        } catch (Exception ex) {
+            Logger.getLogger(GUIPrincipalUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +196,7 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
@@ -196,29 +214,29 @@ public class GUIPrincipalUser extends javax.swing.JFrame {
     }
 
     private void llenarTabla() throws Exception {
-        IRestaurantAccess service = Factory.getInstance().getRestaurantService();
+        IRestaurantAccess service = Factory.getInstance().getsRestaurantSerive();
         RestaurantService objRestaurantService = new RestaurantService(service);
 
         //Restaurant objRestaurant = new Restaurant();
-        List<Restaurant> objListRestaurante = new ArrayList<>();
+        List<Restaurant> objListRestaurante = new ArrayList<Restaurant>();
 
         objListRestaurante = objRestaurantService.listRestaurant();
 
         String matriz[][] = new String[objListRestaurante.size()][6];
 
         for (int i = 0; i < objListRestaurante.size(); i++) {
-            matriz[i][0] = objListRestaurante.get(i).getResId();
-            matriz[i][1] = objListRestaurante.get(i).getUserName();
-            matriz[i][2] = objListRestaurante.get(i).getResNom();
-            matriz[i][3] = objListRestaurante.get(i).getResDireccion();
-            matriz[i][4] = objListRestaurante.get(i).getResCiudad();
-            matriz[i][5] = objListRestaurante.get(i).getResTematicaComida();
+            //matriz[i][0] = objListRestaurante.get(i).getResId();
+            matriz[i][0] = objListRestaurante.get(i).getUserName();
+            matriz[i][1] = objListRestaurante.get(i).getResNom();
+            matriz[i][2] = objListRestaurante.get(i).getResDireccion();
+            matriz[i][3] = objListRestaurante.get(i).getResCiudad();
+            matriz[i][4] = objListRestaurante.get(i).getResTematicaComida();
         }
 
         jTableRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
                 matriz,
                 new String[]{
-                    "ResID", "UserName", "NombreRes", "Direccion", "ciudad", "tematica"
+                     "UserName", "NombreRes", "Direccion", "ciudad", "tematica"
                 }
         ));
 

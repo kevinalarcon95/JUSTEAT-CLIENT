@@ -33,7 +33,17 @@ public class Factory {
         return instance;
 
     }
+    public IRestaurantAccess getsRestaurantSerive(){
+        IRestaurantAccess result =null;
+        String type =Utilities.loadProperty("restaurant.service");
+          switch (type) {
+            case "default":
+                result = new RestaurantAccessImplSockets();
+                break;
+        }
 
+        return result;
+    }
     /**
      * Método que crea una instancia concreta de la jerarquia IRestaurantService
      *

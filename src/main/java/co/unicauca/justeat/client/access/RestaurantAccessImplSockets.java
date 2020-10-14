@@ -5,6 +5,7 @@ import co.unicauca.justeat.commons.domain.Restaurant;
 import co.unicauca.justeat.commons.infra.JsonError;
 import co.unicauca.justeat.commons.infra.Protocol;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -94,6 +95,7 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         return requestJson;
 
     }
+    
 
     private String extractMessages(String jsonResponse) {
         JsonError[] errors = jsonToErrors(jsonResponse);
@@ -132,10 +134,15 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
     private List<Restaurant> jsonToListRestaurant(String jsonRestaurant) {
         Gson gson = new Gson();
-        List<Restaurant> listRestaurant;
-        listRestaurant = gson.fromJson(jsonRestaurant, List.class);
+//        String json=gson.toJson()
+////        String[] parts=jsonRestaurant.split(" - ");
+////        List<Restaurant> listRestaurant = null;
+////        for(int i=1;i<parts.length;i++){
+////            listRestaurant.set(i, gson.fromJson(parts[i], Restaurant.class));
+////        }
+        java.lang.reflect.Type listType = new TypeToken<List<Restaurant>>(){}.getType();
+        List<Restaurant>listRestaurant = gson.fromJson(jsonRestaurant, listType);
         return listRestaurant;
-
     }
 
     /**
@@ -164,11 +171,24 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
         return requestJson;
     }
+    
+     private String findAllRestaurantRequestJson() {
 
+        Protocol protocol = new Protocol();
+        protocol.setResource("Restaurante");
+        protocol.setAction("gets");
+        Gson gson = new Gson();
+        String requestJson = gson.toJson(protocol);
+         System.out.println("json: " + requestJson);
+        return requestJson;
+        
+
+    }
+    
     @Override
     public List<Restaurant> ListRestaurant() throws Exception {
         String jsonResponse = null;
-        String requestJson = findRestaurantRequestJson("rikis");
+        String requestJson = findAllRestaurantRequestJson();
 
         try {
             mySocket.connect();
