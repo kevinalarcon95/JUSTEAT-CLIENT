@@ -10,28 +10,35 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * servicio de Usuario. Permite hacer el CRUD de Usuaruis solicitando los
+ * servicios con la aplicación server. Maneja los errores devueltos
  *
- * @author 
- *      SANTIAGO MUÑOZ 
- *      KEVIN ALARCON 
- *      JUAN JOSE LOPEZ 
- *      SANTIAGO CORDOBA 
- *      DANIEL MUÑOZ
+ * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
+ * MUÑOZ
  */
+public class UserAccessImplSockets implements IUserAccess {
 
-public class UserAccessImplSockets implements IUserAccess{
-    
+    /**
+     * El servicio utiliza un socket para comunicarse con la aplicación server
+     */
     private UserSocket mySocket;
-    
-    UserAccessImplSockets(){
+
+    UserAccessImplSockets() {
         mySocket = new UserSocket();
     }
 
+    /**
+     * Busca un Customer. Utiliza socket para pedir el servicio al servidor
+     *
+     * @param id id del usuario
+     * @return Objeto User
+     * @throws Exception cuando no pueda conectarse con el servidor
+     */
     @Override
     public User findUser(String id) throws Exception {
         String jsonResponse = null;
         String requestJson = findUserRequestJson(id);
-        
+
         try {
             mySocket.connect();
             jsonResponse = mySocket.sendStream(requestJson);
@@ -40,23 +47,30 @@ public class UserAccessImplSockets implements IUserAccess{
         } catch (IOException ex) {
             Logger.getLogger(UserAccessImplSockets.class.getName()).log(Level.SEVERE, "No hubo conexión con el servidor", ex);
         }
-        
-        if(jsonResponse == null){
-            throw  new Exception("No se pudo conectar con el servidor. Revise la red o que el servidor este escuchando");
-        }else{
-            if(jsonResponse.contains("error")){
+
+        if (jsonResponse == null) {
+            throw new Exception("No se pudo conectar con el servidor. Revise la red o que el servidor este escuchando");
+        } else {
+            if (jsonResponse.contains("error")) {
                 //Devolvio algun error
-                 Logger.getLogger(UserAccessImplSockets.class.getName()).log(Level.INFO, jsonResponse);
-                 throw new Exception(extractMessages(jsonResponse));
-            }else{
+                Logger.getLogger(UserAccessImplSockets.class.getName()).log(Level.INFO, jsonResponse);
+                throw new Exception(extractMessages(jsonResponse));
+            } else {
                 //Encontro un usuario
                 User user = jsonToUser(jsonResponse);
                 return user;
             }
         }
-        
+
     }
 
+    /**
+     * Crea un ususario. Utiliza socket para pedir el servicio al servidor
+     *
+     * @param user ususario de la agencia de viajes
+     * @return devuelve el id del ususario creado
+     * @throws Exception error crear el ususario
+     */
     @Override
     public String createUser(User user) throws Exception {
         String jsonResponse = null;
@@ -80,13 +94,20 @@ public class UserAccessImplSockets implements IUserAccess{
                 throw new Exception(extractMessages(jsonResponse));
             } else {
                 //Agregó correctamente, devuelve el userName del usuarioS 
-                return user.getUserName()+ "";
+                return user.getUserName() + "";
             }
 
         }
     }
-    
-    private String findUserRequestJson(String userName){
+
+    /**
+     * Crea una solicitud json para ser enviada por el socket
+     *
+     * @param userName id del usuario
+     * @return solicitud de consulta del ususario en formato Json, algo como:
+     * {"resource":"user","action":"get","parameters":[{"name":"userName","value":"98000001"}]}
+     */
+    private String findUserRequestJson(String userName) {
         Protocol protocol = new Protocol();
         protocol.setResource("user");
         protocol.setAction("get");
@@ -97,7 +118,13 @@ public class UserAccessImplSockets implements IUserAccess{
 
         return requestJson;
     }
-    
+
+    /**
+     * Extra los mensajes de la lista de errores
+     *
+     * @param jsonResponse lista de mensajes json
+     * @return Mensajes de error
+     */
     private String extractMessages(String jsonResponse) {
         JsonError[] errors = jsonToErrors(jsonResponse);
         String msjs = "";
@@ -106,7 +133,7 @@ public class UserAccessImplSockets implements IUserAccess{
         }
         return msjs;
     }
-    
+
     /**
      * Convierte el jsonError a un array de objetos jsonError
      *
@@ -118,7 +145,7 @@ public class UserAccessImplSockets implements IUserAccess{
         JsonError[] error = gson.fromJson(jsonError, JsonError[].class);
         return error;
     }
-    
+
     /**
      * Convierte jsonRestaurant, proveniente del server socket, de json a un
      * objeto User
@@ -133,17 +160,15 @@ public class UserAccessImplSockets implements IUserAccess{
         return user;
 
     }
-    
+
     /**
-     * Crea la solicitud json de creación del user para ser enviado por el
+     * Crea la solicitud json de creación del Usuario para ser enviado por el
      * socket
      *
      * @param user objeto customer
      * @return devulve algo como:
-     * {"resource":"customer","action":"post","parameters":[{"name":"id","value":"980000012"},{"name":"fistName","value":"Juan"},...}]}
+     * {"resource":"Usuario","action":"post","parameters":[{"name":"UserName","value":"980000012"},{"name":"UserContraseña","value":"Juan"},...}]}
      */
-    
-    
     private String createUserRequestJson(User user) {
 
         Protocol protocol = new Protocol();

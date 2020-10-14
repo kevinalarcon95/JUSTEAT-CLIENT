@@ -12,18 +12,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Servicio de Restaurante. Permite hacer el CRUD de Restaurantes solicitando
+ * los servicios con la aplicación server. Maneja los errores devueltos
  *
  * @author SANTIAGO MUÑOZ KEVIN ALARCON JUAN JOSE LOPEZ SANTIAGO CORDOBA DANIEL
  * MUÑOZ
  */
 public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
+    /**
+     * El servicio utiliza un socket para comunicarse con la aplicación server
+     */
     private RestaurantSocket mySocket;
 
     public RestaurantAccessImplSockets() {
         mySocket = new RestaurantSocket();
     }
 
+    /**
+     * Busca un Restaurant. Utiliza socket para pedir el servicio al servidor
+     *
+     * @param id cedula del cliente
+     * @return Objeto Restaurant
+     * @throws Exception cuando no pueda conectarse con el servidor
+     */
     @Override
     public Restaurant findRestaurant(String id) throws Exception {
         String jsonResponse = null;
@@ -52,6 +64,13 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         }
     }
 
+    /**
+     * Crea un Restaurant. Utiliza socket para pedir el servicio al servidor
+     *
+     * @param restaurant cliente de la agencia de viajes
+     * @return devuelve el id del restaurante
+     * @throws Exception error crear el cliente
+     */
     @Override
     public String createRestaurant(Restaurant restaurant) throws Exception {
         String jsonResponse = null;
@@ -82,6 +101,14 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
     }
 
+    /**
+     * Crea una solicitud json para ser enviada por el socket
+     *
+     *
+     * @param idRestaurant identificación del Restaurante
+     * @return solicitud de consulta del Restaurante en formato Json, algo como:
+     * {"resource":"Restaurante","action":"get","parameters":[{"RestNombre":"id","value":"98000001"}]}
+     */
     private String findRestaurantRequestJson(String idRestaurant) {
 
         Protocol protocol = new Protocol();
@@ -95,8 +122,13 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         return requestJson;
 
     }
-    
 
+    /**
+     * Extra los mensajes de la lista de errores
+     *
+     * @param jsonResponse lista de mensajes json
+     * @return Mensajes de error
+     */
     private String extractMessages(String jsonResponse) {
         JsonError[] errors = jsonToErrors(jsonResponse);
         String msjs = "";
@@ -132,16 +164,20 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
         return restaurant;
     }
 
+    /**
+     * Trasforma un jsonRestaurant a una lista re restaurantes
+     *
+     * @param jsonRestaurant
+     * @return lista re restaurantes
+     */
     private List<Restaurant> jsonToListRestaurant(String jsonRestaurant) {
         Gson gson = new Gson();
-//        String json=gson.toJson()
-////        String[] parts=jsonRestaurant.split(" - ");
-////        List<Restaurant> listRestaurant = null;
-////        for(int i=1;i<parts.length;i++){
-////            listRestaurant.set(i, gson.fromJson(parts[i], Restaurant.class));
-////        }
-        java.lang.reflect.Type listType = new TypeToken<List<Restaurant>>(){}.getType();
-        List<Restaurant>listRestaurant = gson.fromJson(jsonRestaurant, listType);
+
+        java.lang.reflect.Type listType = new TypeToken<List<Restaurant>>() {
+        }.getType();
+
+        List<Restaurant> listRestaurant = gson.fromJson(jsonRestaurant, listType);
+
         return listRestaurant;
     }
 
@@ -149,9 +185,9 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
      * Crea la solicitud json de creación del customer para ser enviado por el
      * socket
      *
-     * @param customer objeto customer
+     * @param restaurant objeto customer
      * @return devulve algo como:
-     * {"resource":"customer","action":"post","parameters":[{"name":"id","value":"980000012"},{"name":"fistName","value":"Juan"},...}]}
+     * {"resource":"Restaurante","action":"post","parameters":[{"name":"id","value":"980000012"},{"name":"RestId","value":"Juan"},...}]}
      */
     private String createRestaurantRequestJson(Restaurant restaurant) {
 
@@ -171,20 +207,33 @@ public class RestaurantAccessImplSockets implements IRestaurantAccess {
 
         return requestJson;
     }
-    
-     private String findAllRestaurantRequestJson() {
+
+    /**
+     * Crea una solicitud json para ser enviada por el socket
+     *
+     *
+     * @return solicitud de consulta de restaurantes en formato Json, algo como:
+     * {"resource":"Restaurante","action":"gets","parameters":[]}
+     */
+    private String findAllRestaurantRequestJson() {
 
         Protocol protocol = new Protocol();
         protocol.setResource("Restaurante");
         protocol.setAction("gets");
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
-         System.out.println("json: " + requestJson);
-        return requestJson;
-        
+        System.out.println("json: " + requestJson);
 
+        return requestJson;
     }
-    
+
+    /**
+     * Busca todos los Restaurantes. Utiliza socket para pedir el servicio al
+     * servidor
+     *
+     * @return Lista de Restaurantes.
+     * @throws Exception cuando no pueda conectarse con el servidor
+     */
     @Override
     public List<Restaurant> ListRestaurant() throws Exception {
         String jsonResponse = null;
