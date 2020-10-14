@@ -38,10 +38,6 @@ public class DishSocket {
      */
     private final int PORT = Integer.parseInt(Utilities.loadProperty("server.port"));
 
-    public DishSocket() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
      * Envia una solicitud desde la aplicación cliente al servidor mediate el
      * socket

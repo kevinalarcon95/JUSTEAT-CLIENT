@@ -173,7 +173,7 @@ public class panelAddMenu extends javax.swing.JPanel {
         
         try {
             String response = dishSerivce.createDish(dish);
-             successMessage("Plao  " + response + " agregado con exito.", "Atención");
+             successMessage("Plato  " + response + " agregado con exito.", "Atención");
              clearCotronls();
              
         } catch (Exception ex) {
